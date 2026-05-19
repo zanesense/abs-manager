@@ -1,4 +1,4 @@
-# ABS Manager
+# ABS Manager - Linux File Manager purely in Python.
 
 ![Python](https://img.shields.io/badge/python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Interface](https://img.shields.io/badge/interface-CLI%20only-111111?style=for-the-badge&logo=gnometerminal&logoColor=white)
@@ -143,6 +143,10 @@ mini_os/
 tests/
 demo.mosh
 ```
+
+## Preview
+
+<a href="https://ibb.co/jvPZ9PMd"><img src="https://i.ibb.co/LzXhDXtM/Screenshot-2026-05-19-183943.png" alt="Screenshot-2026-05-19-183943" border="0"></a>
 
 ## Testing
 
