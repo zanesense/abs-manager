@@ -1,0 +1,4 @@
+# Runtime dependencies: none; ABS Manager uses only the Python standard library.
+
+# Test dependency
+pytest>=8.0
