@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.pyo
+
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+.absmanager_history
+disk.bin
+fs_state.json
+journal.log
+
+*.tmp
+*.bak
+*~

@@ -1,0 +1,29 @@
+# ABS Manager demo: runs under 30 seconds.
+mkfs -y --blocks 96 --block-size 64
+mkdir -p /var/log /home/root /tmp
+write /home/root/readme.txt Welcome to ABS Manager
+append /home/root/readme.txt " - a CLI teaching OS"
+read /home/root/readme.txt | grep ABS > /var/log/grep.out
+touch /tmp/linked.bin
+write /tmp/linked.bin abcdefghijklmnopqrstuvwxyz
+alloc /tmp/linked.bin linked
+cp /tmp/linked.bin /tmp/indexed.bin
+alloc /tmp/indexed.bin indexed
+ls -l /tmp
+tree /
+df
+telemetry
+blocks
+spawn compiler 5 3
+spawn shell 3 1
+tick 4 priority
+ps
+bregister 100 3,2,2
+brequest 100 1,1,0
+banker
+sem io 2
+mutex fs lock
+mutex fs unlock
+log 8
+journal verify
+fsck
