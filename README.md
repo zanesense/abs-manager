@@ -146,7 +146,11 @@ demo.mosh
 
 ## Preview
 
-<img src="https://i.postimg.cc/cJkRK4qJ/Screenshot-2026-05-19-183943.png">
+<!--<img src="https://i.postimg.cc/cJkRK4qJ/Screenshot-2026-05-19-183943.png">-->
+
+https://github.com/user-attachments/assets/89cadb8c-02a3-4bc1-98d6-646fdc4e7788
+
+
 
 ## Testing
 
