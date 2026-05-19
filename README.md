@@ -146,7 +146,7 @@ demo.mosh
 
 ## Preview
 
-<a href="https://ibb.co/jvPZ9PMd"><img src="https://i.ibb.co/LzXhDXtM/Screenshot-2026-05-19-183943.png" alt="Screenshot-2026-05-19-183943" border="0"></a>
+<img src="https://i.postimg.cc/cJkRK4qJ/Screenshot-2026-05-19-183943.png">
 
 ## Testing
 
