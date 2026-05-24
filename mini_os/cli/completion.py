@@ -9,6 +9,10 @@ COMMANDS = [
     "ls", "man", "mkdir", "mkfs", "mount", "mutex", "mv", "nice", "pause", "ps", "pwd", "read", "realpath",
     "rm", "run", "sem", "spawn", "stat", "telemetry", "tick", "top", "topb", "touch", "tree", "umount",
     "version", "watch", "write", "quit", "logout", "fmexit",
+    # external / third-party commands
+    "python", "python3", "pip", "pip3", "curl", "wget", "git", "node", "npm", "npx", "deno",
+    "docker", "ssh", "scp", "rsync", "tar", "zip", "unzip", "gzip", "gunzip", "make", "cmake",
+    "cargo", "rustc", "go", "java", "javac", "ruby", "gem", "perl", "php", "which", "where",
 ]
 
 

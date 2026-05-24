@@ -113,6 +113,7 @@ It also supports:
 - Background jobs with `&`, `jobs`, `fg`, and `bg`.
 - Script files with `.mosh`.
 - POSIX-like exit codes.
+- **Third-party command execution**: any executable on your system PATH (e.g. `python`, `pip`, `curl`, `git`, `node`, `docker`) runs transparently through the same shell, with stdin piping, output redirection, and environment variable support.
 
 ## Command Reference
 
@@ -125,6 +126,7 @@ Run `help`, `help <cmd>`, `man <cmd>`, or `<cmd> --help` inside the shell.
 | Processes | `spawn`, `ps`, `kill`, `nice`, `tick`, `run`, `pause`, `top`, `jobs`, `fg`, `bg` |
 | Sync / Deadlock | `banker`, `bregister`, `brequest`, `brelease`, `sem`, `mutex` |
 | System | `banner`, `telemetry`, `log`, `journal`, `history`, `alias`, `export`, `env`, `echo`, `clear`, `help`, `man`, `version`, `exit`, `quit`, `logout`, `fmexit`, `watch` |
+| External | Any command on your system PATH — `python`, `pip`, `curl`, `git`, `node`, `npm`, `docker`, `ssh`, `tar`, ... |
 
 ## Architecture
 

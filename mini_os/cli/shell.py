@@ -107,9 +107,9 @@ class CommandRunner:
             return Result(0, self.man(name) + "\n")
         try:
             method = getattr(self, f"cmd_{name.replace('-', '_')}", None)
-            if not method:
-                return Result(127, err=f"{name}: command not found")
-            return method(argv[1:], stdin)
+            if method:
+                return method(argv[1:], stdin)
+            return self._run_external(argv, stdin)
         except SystemExit as exc:
             return Result(int(exc.code) if isinstance(exc.code, int) else 2)
         except MiniOSError as exc:
@@ -122,6 +122,34 @@ class CommandRunner:
             if os.environ.get("DEBUG") == "1":
                 raise
             return Result(1, err=f"{name}: {exc}")
+
+    def _run_external(self, argv: list[str], stdin: str = "") -> Result:
+        name = argv[0]
+        env = {**os.environ, **self.env}
+        cwd = None
+        try:
+            cwd = str(self.kernel.fs.host_path(".", self.kernel.cwd))
+        except Exception:
+            pass
+        try:
+            result = subprocess.run(
+                argv,
+                input=stdin or None,
+                capture_output=True,
+                text=True,
+                env=env,
+                cwd=cwd,
+                check=False,
+            )
+            return Result(
+                code=result.returncode,
+                out=result.stdout,
+                err=result.stderr,
+            )
+        except FileNotFoundError:
+            return Result(127, err=f"{name}: command not found")
+        except OSError as exc:
+            return Result(126, err=f"{name}: {exc}")
 
     def parser(self, prog: str, desc: str = "") -> argparse.ArgumentParser:
         return argparse.ArgumentParser(prog=prog, description=desc, formatter_class=HelpFormatter, add_help=True)
@@ -495,7 +523,7 @@ class CommandRunner:
             "Sync/Deadlock": "banker bregister brequest brelease sem mutex",
             "System": (
                 "banner telemetry log journal history alias export env echo clear help man version "
-                "exit quit logout fmexit watch"
+                "exit quit logout fmexit watch  |  also: any external command (curl, python, pip, ...)"
             ),
         }
         return Result(0, "\n".join(f"{self.style.header(g)}: {cmds}" for g, cmds in groups.items()) + "\n")
